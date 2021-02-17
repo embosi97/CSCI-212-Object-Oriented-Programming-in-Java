@@ -1,0 +1,58 @@
+1. Did the throws InputMismatchException clause cause any errors? Why, or why not?
+
+Nope. It didn't cause any errors after I imported InputMismatchException, which is probably the reason I didn't get any errors. It's not a custom error so a throw isn't necessary I think. 
+
+2. Describe what happened? Include your interpretation of the output displayed. Where is the
+exception object created?
+
+It doesn't seem to cause any errors. If I input an non-integer it just displays that there's an exception in the thread "main". It does the same thing regardless if the clause is there or not.
+
+3. Describe the output displayed. How is it different than the output displayed previously?
+Describe what happened this time vs. what happened previously. Please be specific.
+What was the last statement to execute within the try block?
+
+In the last case, I got a bulk of red text in the output box that informed me that there was an exception within the main thread. After I added the catch to InputMismatchException, it displays "Invalid input entered. Enter an integer", which is a unique message created by the user.
+The last statement that was executed was the catch block.
+
+4. Explain why the statement done = true; is placed at the end of the try block.
+Was there a difference in output when you added the nextline statement to the catch
+block?
+The while(!done) is essentially an unilimited loop in the thread (while(true)) and done = true; in this block of code ends the while loop since it'll effectively change the boolean property of done to true, so while(!done) is now false. 
+Prior to adding the scan.nextLine, the output box endlessly looped the error message. nextLine(); allows the program to keep asking me to input a correct input until I do so. Way less messy. 
+
+5. Why must you enter all three values (month, day, and year) before your program
+determines that month is invalid?
+The setMonth method in the Date class determines whether a month is invalid or not by limiting a month to be equal or between the values of 1 to 12. It asks me to input all of the values because it is currently not in a while(true) loop.
+
+6. What error do you get? Move the catch block/handler so that it is below the others. You
+shouldn’t get the error now.
+Why do you think the error was produced when the handler appeared first?
+
+It tells me "Unreachable catch block for InputMismatchException. It is already handled by the catch block for RuntimeException" when RTE is over IME. When I reversed the positions of the two catch blocks, there's no longer an error.
+I think it's because RTE is an unchecked exception, like an error is, whereas IME is a checked exception which is checked at compiled time. 
+
+7. Describe what happens and the output displayed.
+How is it different than the output displayed in step #13?
+Instead of a block of red text that was produced by the compiler, the catch message "Invalid Month: month out of range" we put in the setMonth method of the Date class is displayed since RTE checks for wrong integers (in this case less than 1 and more than 12).
+ 
+8. Unreported exception errors are produced. Why? Please be specific. Include the code
+required to fix these errors.
+Please ask your instructor if you do not know what code is required.
+
+You'll need to throw the more specific DateException (which inherents the exception properties from the methods that throw them, like if month is 15 it'll print invalid month and it'll do the same for year and day) to every setter and the original Date method to avoid the errors. DateException inherents everything from the methods depending on which is invoked.
+
+9. Recall that the setMonth method previously threw a RuntimeException and did not need to
+have a throws clause appended to the end of the method header. Why does it need a
+throws clause now?
+
+This is a specific exception that WE created, so we'll need to implement/throw them into the different methods so that it can use their properties (messages). DateException in setMonth replaced RTE to make this possible. 
+
+10. Describe the code that is executed after the user enters 13, 12, and 2016. Be specific.
+What type of exception object is created? Where is the exception object created?
+Which statement in the try block is the last to be executed?
+
+As desired, "DateException: Invalid Month: month out of range" is displayed. A DateException object is created in this instance. 
+
+11. What is the difference between the keyword “throw” and the keyword “throws”?
+
+Throws declares the exception near the header of the method whereas throw is in used in the method body to throw the exception. 

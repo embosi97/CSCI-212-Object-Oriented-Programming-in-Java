@@ -1,0 +1,13 @@
+Subaru,Forester,2018,12902
+Toyota,Camry,2016,24536
+Nissan,Maxima,2009,45648
+Honda,Civic,2002,98304
+Subaru,Legacy,2014,2034
+Hyundai,Kona,2012,27890
+Toyota,Rav4,2013,6547
+Honda,Accord
+Honda,CR-V,2010,13904
+Nissan,Altima,2012,45376
+Honda,Pilot,2013,54398
+Nissan,Leaf,2018,2300
+Acura,MDX,2017,3892
